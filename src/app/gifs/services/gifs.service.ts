@@ -31,24 +31,42 @@ export class GifsService {
   searchHistoryKeys = computed(() => Object.keys(this.searchHistory())
   );
 
+  trendingGifGroup = computed<Gif[][]>(() => {
+    const group = [];
+    for (let i = 0; i < this.trendingGifs().length; i += 3) {
+      group.push(this.trendingGifs().slice(i, i + 3));
+
+    }
+    return group;
+  })
+
 
   constructor() {
     this.loadTrendingGifs();
   }
 
   private http = inject(HttpClient);
+  private trendingPage = signal(0);
+  trendingGifsLoading = signal(false);
 
   loadTrendingGifs() {
+
+    if (this.trendingGifsLoading()) return;
+
+    this.trendingGifsLoading.set(true);
+
     this.http.get<GiphyResponse>(`${environment.giphyUrl}/gifs/trending`, {
       params: {
         api_key: environment.giphyApiKey,
         limit: 20,
+        offset: this.trendingPage() * 20,
       }
 
     }).subscribe((resp) => {
       const gifs = GifMapper.mapGiphyItemsToGifArray(resp.data);
-      this.trendingGifs.set(gifs);
-
+      this.trendingGifs.update(currenGifs => [...currenGifs, ...gifs]);
+      this.trendingGifsLoading.set(false);
+      this.trendingPage.update(val => val + 1);
     })
   }
 
