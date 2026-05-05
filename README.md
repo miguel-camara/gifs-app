@@ -1,59 +1,73 @@
 # GifsApp
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.6.
+<p align="center">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg" height="50" alt="angular logo"/>&nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" height="50" alt="tailwindcss logo" />
+</p>
 
-## Development server
+**GifsApp** aplicacion para obtener Gifs usando la API **GIPHY**. Hecho con **Angular** y para los estilos **Tailwind CSS** y **daisyUI**.
 
-To start a local development server, run:
+## Run Locally
 
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Clone the project
 
 ```bash
-ng generate component component-name
+  git clone https://github.com/miguel-camara/gifs-app.git
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Go to the project directory
 
 ```bash
-ng generate --help
+  cd gifs-app
 ```
 
-## Building
-
-To build the project run:
+Install dependencies
 
 ```bash
-ng build
+  npm install
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Generate the `.env` based on the `.env.template`
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Run the script
 
 ```bash
-ng test
+  npm run set-env
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+Start the server
 
 ```bash
-ng e2e
+  npm run start
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Environment Variables
 
-## Additional Resources
+To run this project, you will need to add the following environment variables to your **environment.ts** files
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+`GIF_KEY` `GIPHY_URL`
+
+## Demo
+
+[Demo](https://gifs-miguel.netlify.app/#/dashboard/trending)
+
+## Screenshots
+
+![App Screenshot](public/screens/screen-1.png)
+
+![App Screenshot](public/screens/screen-2.png)
+
+![App Screenshot](public/screens/screen-3.png)
+
+![App Screenshot](public/screens/screen-4.png)
+
+## Features
+
+- **Gifs App:** En esta aplicación se obtienen gifs usando la API GIPHY.
+- **Trending:** En esta sección se obtienen gifs de forma aleatoria conforme se va haciendo scroll se van cargando más gifs esto ocurre por el scroll infinito.
+- **Buscar:** En esta sección se pueden buscar gifs por nombre, descripción, etc.
+- **Búsquedas:** Cada texto ingresado en el buscador se va mostrando y al dar clic se cargan los elementos previamente buscados estos se mantienen incluso al recargar la página por medio del localstorage.
+
+## Tech Stack
+
+**Frontend:** Angular, Tailwind CSS y daisyUI
