@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { computed, effect, inject, Injectable, signal } from '@angular/core';
 import { environment } from '@environments/environment';
-import { GiphyResponse } from '../interfaces/giphy.intefaces';
-import { Gif } from '../interfaces/gif.interface';
-import { GifMapper } from '../mapper/gif.mapper';
+import { Gif } from '@gifs/interfaces/gif.interface';
+import { GiphyResponse } from '@gifs/interfaces/giphy.intefaces';
+import { GifMapper } from '@gifs/mapper/gif.mapper';
 import { map, tap } from 'rxjs';
 
-const GIF_KEY = 'gifs';
+const GIF_KEY = environment.gifKey;
 
 const loadFromLocalStorage = () => {
   const gifLoadFromLocalStorage = localStorage.getItem(GIF_KEY) ?? '[]';
@@ -57,7 +57,7 @@ export class GifsService {
 
     this.http.get<GiphyResponse>(`${environment.giphyUrl}/gifs/trending`, {
       params: {
-        api_key: environment.giphyApiKey,
+        api_key: GIF_KEY,
         limit: 20,
         offset: this.trendingPage() * 20,
       }
@@ -73,7 +73,7 @@ export class GifsService {
   searchGifs(query: string) {
     return this.http.get<GiphyResponse>(`${environment.giphyUrl}/gifs/search`, {
       params: {
-        api_key: environment.giphyApiKey,
+        api_key: GIF_KEY,
         limit: 20,
         q: query
       }
@@ -92,5 +92,4 @@ export class GifsService {
   getHistoryGifs(query: string): Gif[] {
     return this.searchHistory()[query] ?? [];
   }
-
 }

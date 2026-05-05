@@ -1,5 +1,5 @@
-import { Gif } from "../interfaces/gif.interface";
-import { GiphyItem } from "../interfaces/giphy.intefaces";
+import { Gif } from "@gifs/interfaces/gif.interface";
+import { GiphyItem } from "@gifs/interfaces/giphy.intefaces";
 
 export class GifMapper {
   static mapGiphyItemToGif(item: GiphyItem): Gif {

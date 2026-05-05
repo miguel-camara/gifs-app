@@ -1,7 +1,7 @@
 
 import { AfterViewInit, Component, ElementRef, inject, viewChild } from '@angular/core';
-import { GifsService } from '../../services/gifs.service';
-import { ScrollStateService } from '../../shared/scroll-state.service';
+import { GifsService } from '@gifs/services/gifs.service';
+import { ScrollStateService } from '@gifs/shared/scroll-state.service';
 
 @Component({
   selector: 'app-trending-page',
@@ -11,6 +11,8 @@ export default class TrendingPageComponent implements AfterViewInit {
 
   scrollDivRef = viewChild<ElementRef>("groupDiv");
   scrollStateService = inject(ScrollStateService);
+
+  gifs = inject(GifsService);
 
   ngAfterViewInit(): void {
     const scrollDiv = this.scrollDivRef()?.nativeElement
@@ -37,5 +39,4 @@ export default class TrendingPageComponent implements AfterViewInit {
       this.gifs.loadTrendingGifs();
     }
   }
-  gifs = inject(GifsService);
 }

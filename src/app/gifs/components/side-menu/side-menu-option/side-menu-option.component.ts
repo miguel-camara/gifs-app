@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from "@angular/router";
-import { GifsService } from 'src/app/gifs/services/gifs.service';
+import { GifsService } from '@gifs/services/gifs.service';
 
 interface MenuOption {
   icon: string;

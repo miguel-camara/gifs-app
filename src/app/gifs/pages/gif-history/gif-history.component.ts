@@ -1,9 +1,9 @@
 import { Component, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
+import { GifsListComponent } from '@gifs/components/gifs-list/gifs-list.component';
+import { GifsService } from '@gifs/services/gifs.service';
 import { map } from 'rxjs';
-import { GifsService } from '../../services/gifs.service';
-import { GifsListComponent } from "../../components/gifs-list/gifs-list.component";
 
 @Component({
   selector: 'app-gif-history.component',

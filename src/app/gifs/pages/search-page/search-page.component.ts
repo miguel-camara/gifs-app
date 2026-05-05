@@ -1,8 +1,8 @@
-import { Component, computed, inject, signal } from '@angular/core';
-import { GifsListComponent } from "../../components/gifs-list/gifs-list.component";
-import { GifsService } from '../../services/gifs.service';
-import { Gif } from '../../interfaces/gif.interface';
-import { GifMapper } from '../../mapper/gif.mapper';
+import { Component, inject, signal } from '@angular/core';
+import { GifsListComponent } from '@gifs/components/gifs-list/gifs-list.component';
+import { Gif } from '@gifs/interfaces/gif.interface';
+import { GifsService } from '@gifs/services/gifs.service';
+
 
 @Component({
   selector: 'app-search-page',
